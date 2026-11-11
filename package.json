@@ -1,0 +1,23 @@
+{
+  "name": "interview-desk",
+  "version": "1.0.0",
+  "description": "Assistente local de entrevistas com áudio do sistema e contexto pessoal",
+  "main": "src/main.cjs",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/launch.cjs",
+    "smoke": "node scripts/launch.cjs scripts/smoke.cjs",
+    "test": "node --test test/*.test.cjs",
+    "check": "node scripts/check.cjs",
+    "package": "node scripts/package.cjs"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.8.1",
+    "mammoth": "^1.11.0",
+    "pdf-parse": "^2.4.5"
+  },
+  "devDependencies": {
+    "@electron/packager": "^19.0.1",
+    "electron": "^45.2.3"
+  }
+}

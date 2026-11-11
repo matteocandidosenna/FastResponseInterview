@@ -1,0 +1,26 @@
+.compact-mode{height:100vh;overflow:hidden;display:flex;flex-direction:column}
+.compact-mode .topbar,.compact-mode .sidebar,.compact-mode .context-panel,.compact-mode .page-heading,.compact-mode .transcript-card,.compact-mode .practice-bar{display:none}
+.compact-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 16px;border-bottom:1px solid var(--line)}
+.compact-header .brand{font-size:17px;gap:9px}
+.compact-header .brandmark{width:30px;height:30px;font-size:26px;border-radius:9px}
+.compact-header .brand small{font-size:8px;letter-spacing:1.1px}
+.compact-header button{padding:8px;font-size:11px}
+.compact-controls{display:flex;flex-wrap:wrap;gap:8px;padding:12px 16px 0}
+.compact-controls #warmup{width:100%;font-size:11px}
+.compact-mode.transcription-ready #warmup{display:none}
+.compact-controls #capture{width:auto;flex:1;margin:0;font-size:12px;white-space:nowrap}
+.compact-controls #answer,.compact-controls #cancel{font-size:12px;flex:1;white-space:nowrap}
+.compact-controls #answer:disabled{display:none}
+.compact-controls #audioStatus{width:100%;font-size:11px;color:var(--muted);padding:2px 0}
+.compact-mode .workspace{display:flex;flex:1;min-height:0}
+.compact-mode .center{display:flex;flex-direction:column;width:100%;padding:10px 16px 16px;min-height:0}
+.compact-mode #notice{flex-shrink:0;font-size:11px;margin:0 0 8px;padding:9px 11px;max-height:90px;overflow:auto}
+.compact-mode .answer-card{display:flex;flex-direction:column;flex:1;min-height:0;margin:0}
+.compact-mode .answer-card .card-heading{padding:11px 13px;flex-shrink:0}
+.compact-mode .answer-card h2{font-size:12px}
+.compact-mode .number{display:none}
+.compact-mode .answer-body{flex:1;min-height:0;max-height:none;padding:13px 15px;font-size:15px;line-height:1.7}
+.compact-mode .answer-empty{padding:14px 0}
+.compact-mode .answer-empty .spark{font-size:28px}
+.compact-mode .answer-empty p{font-size:11px}
+.compact-mode .answer-footer{flex-shrink:0;flex-wrap:wrap;gap:5px;padding:10px 13px;font-size:9px}

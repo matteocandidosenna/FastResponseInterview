@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; media-src 'self' blob:; worker-src 'self' blob:">
+  <title>Interview Desk</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="compact.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brandmark">i<span>·</span></span><div>interview<span class="brand-light">desk</span><small>YOUR EXPERIENCE. CLEARLY EXPRESSED.</small></div></div>
+    <div class="top-actions"><span class="tag" id="roleTag">BACKEND / ENGLISH</span><button id="compact" class="subtle" title="Abrir painel flutuante">▣ Modo compacto</button><button id="pin" class="subtle" aria-pressed="false">◇ Fixar janela</button><button id="export" class="subtle">Exportar sessão ↗</button></div>
+  </header>
+  <header class="compact-header" hidden id="compactHeader">
+    <div class="brand"><span class="brandmark">i<span>·</span></span><div>interview<span class="brand-light">desk</span><small>ESCUTA & RESPOSTAS</small></div></div>
+    <button id="expand" class="subtle" title="Voltar à tela completa e às configurações">↗ Expandir</button>
+  </header>
+  <div id="compactControls" class="compact-controls" hidden></div>
+  <main class="workspace">
+    <aside class="sidebar">
+      <div class="eyebrow">CONEXÃO</div>
+      <div class="account"><span class="dot" id="accountDot"></span><span id="accountStatus">Verificando Codex…</span></div>
+      <button id="login" class="wide">Continuar com ChatGPT</button>
+      <p class="hint">Usa o acesso Codex da sua assinatura. Sujeito aos limites da conta.</p>
+      <div class="divider"></div>
+      <div class="eyebrow">FONTE DE ÁUDIO</div>
+      <div class="source"><span class="source-icon">◉</span><div><strong>Som do sistema</strong><small>Saída padrão do Windows · loopback</small></div></div>
+      <div class="meter"><div id="meterFill"></div></div>
+      <div class="meter-label"><span id="audioStatus">Captura desligada</span><span id="db">— dB</span></div>
+      <button id="testAudio" class="wide">Testar som por 5 segundos</button>
+      <p class="hint">Para testar, deixe um vídeo ou uma música tocando no mesmo fone da entrevista.</p>
+      <button id="warmup" class="wide">↓ Preparar transcrição local</button>
+      <p id="download" class="hint">O primeiro uso baixa o modelo. Depois, o áudio é transcrito neste computador.</p>
+      <button id="capture" class="primary wide" disabled>◉ Iniciar captura</button>
+      <label class="toggle"><input id="auto" type="checkbox"><span>Responder após a fala</span></label>
+      <p class="hint">Capta os aplicativos que tocam na saída padrão. O microfone não é capturado.</p>
+      <div class="divider"></div>
+      <div class="eyebrow">QUALIDADE & VELOCIDADE</div>
+      <label>Transcrição em inglês<select id="whisper"><option value="onnx-community/whisper-tiny.en">Tiny · mais rápido</option><option value="onnx-community/whisper-base.en" selected>Base · equilibrado</option><option value="onnx-community/whisper-small.en">Small · mais preciso</option></select></label>
+      <label>Modelo de resposta<select id="model"><option value="">Padrão da sua conta</option></select></label>
+      <label>Profundidade<select id="effort"><option value="low">Rápida · low</option><option value="medium" selected>Equilibrada · medium</option><option value="high">Detalhada · high</option></select></label>
+      <details><summary>Ajustes de captura</summary><label>Pausa para fechar a fala<select id="silence"><option value="550">550 ms</option><option value="850" selected>850 ms</option><option value="1200">1.200 ms</option><option value="1600">1.600 ms</option></select></label><label>Sensibilidade<select id="threshold"><option value="0.003">Alta · áudio baixo</option><option value="0.008" selected>Normal</option><option value="0.02">Baixa · ruído de fundo</option></select></label></details>
+      <div class="local-note"><span>◈</span> Áudio local. Contexto enviado ao Codex ao gerar respostas.</div>
+    </aside>
+    <section class="center">
+      <div class="page-heading"><div><div class="eyebrow accent">INTERVIEW WORKSPACE</div><h1>Uma ideia clara.<br>Uma boa resposta.</h1></div><span id="sessionBadge" class="session-badge">● Pronto para preparar</span></div>
+      <div id="notice" role="status" aria-live="polite" hidden></div>
+      <section class="card transcript-card">
+        <div class="card-heading"><h2><span class="number">01</span> O que você ouviu</h2><div><span id="sttTime" class="metric">—</span><button id="clear" class="icon-button" title="Limpar sessão">Limpar</button></div></div>
+        <div id="transcript" class="transcript"><p class="placeholder">A fala do entrevistador aparece aqui.<br><span>Você também pode escrever ou colar a pergunta abaixo.</span></p></div>
+        <textarea id="question" rows="3" placeholder="Ex.: How would you make a payment endpoint idempotent?" aria-label="Pergunta do entrevistador"></textarea>
+        <div class="question-footer"><span>Ctrl + Enter para responder</span><div><button id="cancel" hidden>Interromper</button><button id="answer" class="primary">Gerar resposta <span>↗</span></button></div></div>
+      </section>
+      <section class="card answer-card">
+        <div class="card-heading"><h2><span class="number">02</span> Sua resposta <span class="pill" id="languageBadge">EN</span></h2><button id="copy" class="icon-button">Copiar</button></div>
+        <div id="answerBody" class="answer-body"><div class="answer-empty"><div class="spark">✳</div><h3>Específica para você.</h3><p>Adicione seu currículo e a descrição da vaga.<br>As respostas usarão esse contexto e a pergunta atual.</p></div></div>
+        <div class="answer-footer"><span id="answerState">Aguardando pergunta</span><span id="latency">Primeiro texto —</span></div>
+      </section>
+      <div class="practice-bar"><span>PRATICAR BACKEND</span><button data-practice="api">API design ↗</button><button data-practice="data">SQL & dados ↗</button><button data-practice="system">System design ↗</button><button data-practice="behavior">Experiência ↗</button></div>
+    </section>
+    <aside class="context-panel">
+      <div class="card-heading"><h2>Seu contexto</h2><span id="saved" class="saved">Salvo localmente</span></div>
+      <p class="hint">Quanto mais concreto o material, mais específica a resposta.</p>
+      <label>Vaga<input id="role" value="Backend Engineer"></label>
+      <label>Idioma da resposta<select id="language"><option>English</option><option>Português</option></select></label>
+      <label>Descrição da vaga<textarea id="job" rows="5" placeholder="Cole os requisitos, a stack e as responsabilidades da vaga…"></textarea></label>
+      <label>Sobre você<textarea id="background" rows="5" placeholder="Sua stack, projetos reais, decisões técnicas e resultados. Inclua números apenas se forem verdadeiros."></textarea></label>
+      <label>Estilo da resposta<textarea id="instructions" rows="3" placeholder="Ex.: inglês simples, resposta em 60 segundos, exemplos em Python."></textarea></label>
+      <div class="divider"></div>
+      <div class="files-heading"><span class="eyebrow">MATERIAIS</span><span id="fileCount">0 arquivos</span></div>
+      <button id="import" class="upload"><span>＋</span> Adicionar materiais<small>PDF, DOCX, texto e imagens · até 25 MB</small></button>
+      <div id="files" class="files"></div>
+      <details class="research"><summary>Preparação para a Alignerr</summary><p>O anúncio público de Backend Engineer descreve triagem Zara em inglês sobre experiência e entrevista técnica com sistemas distribuídos, microsserviços e frameworks backend. O trabalho inclui revisar código de IA, explicar decisões e identificar casos extremos.</p><p>Os exercícios deste app são sugestões de treino; não são perguntas oficiais. Confira as instruções do seu convite sobre assistência durante a avaliação.</p><p>Fontes: alignerr.com/en/process e vaga 90bd0392-8519-4ca7-b23b-95cea934595f. Pesquisa: 06/11/2026. Tutorial completo no README.md.</p></details>
+    </aside>
+  </main>
+  <script src="segmenter.js"></script>
+  <script src="renderer.js"></script>
+</body>
+</html>
