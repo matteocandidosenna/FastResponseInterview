@@ -5,10 +5,10 @@ let autoTimer, settingsTimer, audioEpoch = 0, newestAutoQuestion = '', questionV
 let testOnly = false, testPeak = 0;
 const fields = ['role', 'language', 'job', 'background', 'instructions', 'model', 'effort', 'whisper', 'silence', 'threshold', 'auto'];
 const practice = {
-  api: ['How would you design an idempotent payment API? Discuss retries and concurrent requests.', 'How do you version a REST API without breaking existing clients?', 'How would you design rate limiting for a multi-tenant API?'],
-  data: ['A database query became slow as the table grew. How would you diagnose and fix it?', 'Explain transaction isolation levels and when you would use each.', 'How do you keep a cache consistent with a relational database?'],
-  system: ['Design a reliable job processing system. How do you handle duplicates, retries and poison messages?', 'Design a URL shortener and explain your storage and scaling choices.', 'How would you investigate intermittent latency in a backend service?'],
-  behavior: ['Tell me about yourself and your backend engineering experience.', 'Describe a production incident you handled and what you learned.', 'Tell me about a technical trade-off you made with your team.']
+  api: ['Which skills make you a good fit for this role? Give a concrete example.', 'How do you learn a new skill or tool required for your work?', 'How do you evaluate the quality of your work?'],
+  data: ['Describe a difficult problem you solved and how you approached it.', 'Tell me about a time something did not go as planned. What did you learn?', 'How do you handle competing priorities and tight deadlines?'],
+  system: ['Tell me about a decision you made with incomplete information.', 'How do you compare different approaches before choosing a solution?', 'Describe a time you balanced quality, time and available resources.'],
+  behavior: ['Tell me about yourself and your professional experience.', 'Describe a project or achievement you are proud of and your contribution.', 'Tell me about a disagreement you resolved with your team.']
 };
 const practiceIndex = {};
 const controlHomes = new Map();

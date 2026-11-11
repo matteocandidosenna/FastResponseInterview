@@ -8,7 +8,7 @@ const { makeDocument, buildPrompt } = require('./context.cjs');
 const { attachCompactWindow } = require('./compact-window.cjs');
 
 let win, bridge, dataDir, stateFile, worker, compactWindow;
-let state = { settings: { role: 'Backend Engineer', language: 'English', job: '', background: '', instructions: '', model: '', effort: 'medium', whisper: 'onnx-community/whisper-base.en', silence: 850, threshold: 0.008, auto: false }, documents: [] };
+let state = { settings: { role: 'Sua vaga', language: 'English', job: '', background: '', instructions: '', model: '', effort: 'medium', whisper: 'onnx-community/whisper-base.en', silence: 850, threshold: 0.008, auto: false }, documents: [] };
 let history = [], busy = false, cancelPending = false, sttSeq = 0, sttPending = new Map(), saveChain = Promise.resolve();
 const send = (type, data) => { if (win && !win.isDestroyed()) win.webContents.send('desk:event', { type, ...data }); };
 const save = () => {

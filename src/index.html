@@ -11,7 +11,7 @@
 <body>
   <header class="topbar">
     <div class="brand"><span class="brandmark">i<span>·</span></span><div>interview<span class="brand-light">desk</span><small>YOUR EXPERIENCE. CLEARLY EXPRESSED.</small></div></div>
-    <div class="top-actions"><span class="tag" id="roleTag">BACKEND / ENGLISH</span><button id="compact" class="subtle" title="Abrir painel flutuante">▣ Modo compacto</button><button id="pin" class="subtle" aria-pressed="false">◇ Fixar janela</button><button id="export" class="subtle">Exportar sessão ↗</button></div>
+    <div class="top-actions"><span class="tag" id="roleTag">SUA VAGA / ENGLISH</span><button id="compact" class="subtle" title="Abrir painel flutuante">▣ Modo compacto</button><button id="pin" class="subtle" aria-pressed="false">◇ Fixar janela</button><button id="export" class="subtle">Exportar sessão ↗</button></div>
   </header>
   <header class="compact-header" hidden id="compactHeader">
     <div class="brand"><span class="brandmark">i<span>·</span></span><div>interview<span class="brand-light">desk</span><small>ESCUTA & RESPOSTAS</small></div></div>
@@ -50,7 +50,7 @@
       <section class="card transcript-card">
         <div class="card-heading"><h2><span class="number">01</span> O que você ouviu</h2><div><span id="sttTime" class="metric">—</span><button id="clear" class="icon-button" title="Limpar sessão">Limpar</button></div></div>
         <div id="transcript" class="transcript"><p class="placeholder">A fala do entrevistador aparece aqui.<br><span>Você também pode escrever ou colar a pergunta abaixo.</span></p></div>
-        <textarea id="question" rows="3" placeholder="Ex.: How would you make a payment endpoint idempotent?" aria-label="Pergunta do entrevistador"></textarea>
+        <textarea id="question" rows="3" placeholder="Ex.: Tell me about your experience and why you are interested in this role." aria-label="Pergunta do entrevistador"></textarea>
         <div class="question-footer"><span>Ctrl + Enter para responder</span><div><button id="cancel" hidden>Interromper</button><button id="answer" class="primary">Gerar resposta <span>↗</span></button></div></div>
       </section>
       <section class="card answer-card">
@@ -58,21 +58,21 @@
         <div id="answerBody" class="answer-body"><div class="answer-empty"><div class="spark">✳</div><h3>Específica para você.</h3><p>Adicione seu currículo e a descrição da vaga.<br>As respostas usarão esse contexto e a pergunta atual.</p></div></div>
         <div class="answer-footer"><span id="answerState">Aguardando pergunta</span><span id="latency">Primeiro texto —</span></div>
       </section>
-      <div class="practice-bar"><span>PRATICAR BACKEND</span><button data-practice="api">API design ↗</button><button data-practice="data">SQL & dados ↗</button><button data-practice="system">System design ↗</button><button data-practice="behavior">Experiência ↗</button></div>
+      <div class="practice-bar"><span>PRATICAR ENTREVISTA</span><button data-practice="api">Habilidades ↗</button><button data-practice="data">Desafios ↗</button><button data-practice="system">Decisões ↗</button><button data-practice="behavior">Experiência ↗</button></div>
     </section>
     <aside class="context-panel">
       <div class="card-heading"><h2>Seu contexto</h2><span id="saved" class="saved">Salvo localmente</span></div>
       <p class="hint">Quanto mais concreto o material, mais específica a resposta.</p>
-      <label>Vaga<input id="role" value="Backend Engineer"></label>
+      <label>Vaga<input id="role" value="Sua vaga" placeholder="Ex.: Analista de dados, Designer, Engenheiro de software"></label>
       <label>Idioma da resposta<select id="language"><option>English</option><option>Português</option></select></label>
-      <label>Descrição da vaga<textarea id="job" rows="5" placeholder="Cole os requisitos, a stack e as responsabilidades da vaga…"></textarea></label>
-      <label>Sobre você<textarea id="background" rows="5" placeholder="Sua stack, projetos reais, decisões técnicas e resultados. Inclua números apenas se forem verdadeiros."></textarea></label>
-      <label>Estilo da resposta<textarea id="instructions" rows="3" placeholder="Ex.: inglês simples, resposta em 60 segundos, exemplos em Python."></textarea></label>
+      <label>Descrição da vaga<textarea id="job" rows="5" placeholder="Cole os requisitos, as competências e as responsabilidades da vaga…"></textarea></label>
+      <label>Sobre você<textarea id="background" rows="5" placeholder="Suas habilidades, experiências reais, projetos e resultados. Inclua números apenas se forem verdadeiros."></textarea></label>
+      <label>Estilo da resposta<textarea id="instructions" rows="3" placeholder="Ex.: linguagem simples, resposta em 60 segundos, exemplos da minha experiência."></textarea></label>
       <div class="divider"></div>
       <div class="files-heading"><span class="eyebrow">MATERIAIS</span><span id="fileCount">0 arquivos</span></div>
       <button id="import" class="upload"><span>＋</span> Adicionar materiais<small>PDF, DOCX, texto e imagens · até 25 MB</small></button>
       <div id="files" class="files"></div>
-      <details class="research"><summary>Preparação para a Alignerr</summary><p>O anúncio público de Backend Engineer descreve triagem Zara em inglês sobre experiência e entrevista técnica com sistemas distribuídos, microsserviços e frameworks backend. O trabalho inclui revisar código de IA, explicar decisões e identificar casos extremos.</p><p>Os exercícios deste app são sugestões de treino; não são perguntas oficiais. Confira as instruções do seu convite sobre assistência durante a avaliação.</p><p>Fontes: alignerr.com/en/process e vaga 90bd0392-8519-4ca7-b23b-95cea934595f. Pesquisa: 06/11/2026. Tutorial completo no README.md.</p></details>
+      <details class="research"><summary>Preparação para sua entrevista</summary><p>Informe a vaga, adicione seu currículo e descreva experiências relevantes. Use os requisitos da oportunidade para orientar suas respostas e os temas de estudo.</p><p>Os exercícios deste app são sugestões de treino; não são perguntas oficiais. Confira as instruções do seu convite sobre assistência durante a avaliação.</p><p>Pratique explicar suas habilidades, decisões, desafios e resultados com exemplos reais. Tutorial completo no README.md.</p></details>
     </aside>
   </main>
   <script src="segmenter.js"></script>

@@ -1,8 +1,8 @@
 # Interview Desk
 
-Aplicativo Windows para ouvir o **som do sistema**, transcrever perguntas em inglês e gerar respostas de entrevista com seu contexto pessoal. O perfil inicial é **Backend Engineer / Alignerr**.
+Aplicativo Windows para ouvir o **som do sistema**, transcrever perguntas em inglês e gerar respostas de entrevista com seu contexto pessoal. Preencha sua vaga, experiências e materiais para adaptar as respostas à sua oportunidade.
 
-A geração usa o **Codex App Server com login oficial do ChatGPT**. A transcrição usa **Whisper local**, sem chave de API de áudio. O aplicativo não é afiliado à Alignerr, Cluely ou OpenAI.
+A geração usa o **Codex App Server com login oficial do ChatGPT**. A transcrição usa **Whisper local**, sem chave de API de áudio. O aplicativo é independente e não é afiliado à OpenAI ou a empresas de recrutamento.
 
 ## 1. Abrir o aplicativo
 
@@ -12,7 +12,7 @@ A geração usa o **Codex App Server com login oficial do ChatGPT**. A transcri�
 2. Dê dois cliques em **`Iniciar.cmd`**.
 3. Aguarde a janela **Interview Desk**.
 
-As dependências e o modelo **Whisper Base em inglês** foram preparados no projeto. O inicializador instala dependências se estiverem ausentes; nesse caso é preciso ter Node.js e acesso à internet.
+O inicializador instala dependências se estiverem ausentes; nesse caso é preciso ter Node.js e acesso à internet. Prepare o modelo **Whisper Base em inglês** pelo aplicativo antes da primeira captura.
 
 Também é possível executar no PowerShell, dentro desta pasta:
 
@@ -112,29 +112,29 @@ No modo manual, você pode corrigir a transcrição e juntar vários trechos ant
 No painel **Seu contexto**:
 
 1. Confirme a vaga e o idioma.
-2. Cole a **descrição exata da vaga**. O anúncio público pesquisado é uma referência, não uma confirmação de que seja o mesmo convite que você recebeu.
-3. Em **Sobre você**, descreva suas experiências reais, tecnologias, projetos e resultados.
+2. Cole a **descrição exata da vaga**, incluindo os requisitos e as responsabilidades da oportunidade.
+3. Em **Sobre você**, descreva suas experiências reais, habilidades, projetos e resultados.
 4. Em **Estilo da resposta**, diga como prefere responder.
 5. Clique em **Adicionar materiais** para selecionar arquivos.
 
 Exemplo de contexto pessoal para preencher com fatos seus:
 
 ```text
-Minha stack principal: [linguagem, framework, banco, cloud].
+Minhas principais habilidades: [competências, métodos e ferramentas].
 Projeto: [problema real que resolvi].
 Minha responsabilidade: [o que eu fiz, individualmente].
-Decisão técnica: [opções e motivo da escolha].
+Decisão importante: [opções e motivo da escolha].
 Resultado observado: [métrica verdadeira ou efeito qualitativo].
-Incidente: [diagnóstico, correção e aprendizado].
+Desafio: [situação, ação e aprendizado].
 ```
 
 Exemplo de instrução de estilo:
 
 ```text
 Answer in clear conversational English. Start with the direct answer.
-Use a concrete backend example and explain one important trade-off.
+Use a concrete example relevant to the role and explain one important trade-off.
 Keep the main answer suitable for about one minute of speech.
-For code examples, prefer Python and PostgreSQL.
+Base personal examples on the experience I provided.
 ```
 
 ### Formatos e limites
@@ -172,8 +172,8 @@ Som do Windows → pausa na fala → Whisper local → contexto relevante → Co
 | Whisper Base | Ponto inicial equilibrado para inglês. | Mais processamento que Tiny. |
 | Whisper Small | Priorizar transcrição precisa. | Download maior e maior consumo de CPU/memória. |
 | Profundidade low | Perguntas diretas ou respostas rápidas. | Menos análise para problemas complexos. |
-| Profundidade medium | Padrão para backend. | Pode demorar mais que low. |
-| Profundidade high | Design complexo e revisão detalhada. | Maior latência e uso da conta. |
+| Profundidade medium | Equilíbrio entre detalhe e rapidez. | Pode demorar mais que low. |
+| Profundidade high | Problemas complexos e análise detalhada. | Maior latência e uso da conta. |
 | Pausa 550 ms | Fala contínua, poucas hesitações. | Pode dividir uma pergunta cedo demais. |
 | Pausa 850–1.200 ms | Conversa com pausas naturais. | Acrescenta tempo antes de transcrever. |
 
@@ -183,19 +183,13 @@ Na validação local, um áudio sintético de aproximadamente 5,2 segundos foi t
 
 Para respostas específicas, o melhor ponto inicial é: **Base + medium + currículo enxuto + vaga exata + dois ou três projetos detalhados**. Reduzir instruções e anexos repetidos costuma ser mais útil do que pedir uma resposta longa para toda pergunta.
 
-## 7. Preparação para Backend Engineer na Alignerr
+## 7. Preparação para sua entrevista
 
-A pesquisa pública encontrou um anúncio de **Software Engineer - Backend** com:
+Personalize o campo **Vaga**, cole a descrição da oportunidade e adicione materiais relevantes. As respostas usam esse contexto para se adaptar à sua área e experiência.
 
-- Triagem com Zara, em inglês, sobre histórico e experiência.
-- Entrevista de domínio envolvendo sistemas distribuídos, microsserviços e frameworks backend.
-- Atividades de avaliar código backend gerado por IA, escrever soluções, explicar escolhas e identificar casos extremos.
+Os botões **Praticar entrevista** inserem perguntas sobre habilidades, desafios, decisões e experiências profissionais. Eles não enviam a pergunta automaticamente: você pode editá-la antes de gerar uma resposta.
 
-Fonte: [anúncio oficial de Backend Engineer](https://www.alignerr.com/jobs/90bd0392-8519-4ca7-b23b-95cea934595f), consultado em 06/11/2026. O [processo geral da Alignerr](https://www.alignerr.com/en/process) informa que as etapas adicionais variam conforme a vaga/projeto.
-
-Os botões **Praticar backend** inserem perguntas sobre API design, dados, system design e experiências profissionais. Eles não enviam a pergunta automaticamente: você pode editá-la antes de gerar uma resposta.
-
-Para a parte técnica, pratique explicar decisões, limites e falhas: idempotência, isolamento de transações, índices, invalidação de cache, retries, filas, consistência, observabilidade e segurança. Essa lista é uma proposta de preparação derivada do perfil backend, não um roteiro oficial ou banco de perguntas da plataforma.
+Pratique apresentar sua trajetória, explicar sua contribuição em projetos e discutir decisões com exemplos reais. Para perguntas específicas da área, use os requisitos da vaga como ponto de partida e escreva ou cole a pergunta no campo de texto. Os exercícios são sugestões de treino, não um roteiro oficial ou banco de perguntas de uma empresa.
 
 O app orienta o modelo a não inventar experiências, empregadores ou métricas pessoais. Se faltar evidência no seu material, ele deve indicar o que personalizar ou apresentar uma abordagem hipotética. Confira as regras do convite sobre assistência durante a avaliação.
 
@@ -228,7 +222,7 @@ O app orienta o modelo a não inventar experiências, empregadores ou métricas 
 | Transcrição atrasada | Use Tiny, feche tarefas pesadas e evite reproduzir vários áudios simultaneamente. |
 | Termos técnicos incorretos | Use Base/Small, melhore a qualidade da fonte ou corrija a pergunta antes de enviar. |
 | Download não termina | Verifique acesso a Hugging Face e internet. Tente preparar novamente; não inicie o primeiro download durante a entrevista. |
-| Resposta genérica | Adicione a vaga exata, projetos e decisões técnicas reais. Diga a stack preferida. |
+| Resposta genérica | Adicione a vaga exata, experiências e decisões reais. Descreva suas habilidades e ferramentas de trabalho. |
 | PDF escaneado grande | Separe as páginas importantes ou exporte-as como imagens. O limite visual é explícito. |
 | Modelo não aceita profundidade | Escolha um modelo compatível com low/medium/high ou volte ao padrão da conta. |
 
@@ -254,7 +248,7 @@ src/context.cjs     Seleção de trechos e instruções da resposta
 src/renderer.js     Interface, captura, fila e modo automático
 test/              Testes de comportamento
 scripts/           Inicialização, empacotamento e diagnóstico
-docs/              Pesquisa e registro de validação
+docs/              Guia de preparação e registro de validação
 ```
 
 **Testes disponíveis:**
@@ -273,4 +267,4 @@ O relatório em [docs/VALIDACAO.md](docs/VALIDACAO.md) distingue verificações 
 - [Autenticação Codex / ChatGPT](https://learn.chatgpt.com/docs/auth): acesso pela assinatura.
 - [Captura de desktop no Electron](https://www.electronjs.org/docs/latest/api/desktop-capturer): áudio loopback.
 - [Transformers.js](https://github.com/huggingface/transformers.js): execução local do Whisper com ONNX.
-- [Pesquisa da Alignerr](docs/ALIGNERR.md): fontes, escopo e preparação.
+- [Guia de preparação](docs/PREPARACAO.md): personalização do contexto e sugestões de treino.
